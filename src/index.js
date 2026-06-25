@@ -1,9 +1,11 @@
 // require('dotenv').config({path:'./env'}) consistency not maintained
 import dotenv from "dotenv";
-import connectDB from "./db/db.js";
 dotenv.config({
   path: "./env",
 });
+import {app} from './app.js'
+import connectDB from "./db/db.js";
+
 
 connectDB() //connection is async so it gives promises thats why we handle some error
   .then(() => {
