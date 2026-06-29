@@ -1,5 +1,5 @@
 import mongoose ,{Schema}from 'mongoose'
-import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2'; // npm
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2'; // npm , for using aggregate fn. 
 const videoSchema = new Schema({
 videoFile :{
   type : String, // cloudinary url
