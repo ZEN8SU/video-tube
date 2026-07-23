@@ -31,7 +31,7 @@ isPublished :{
 },
 owner :{
   type : Schema.Types.ObjectId,
-  ref :"user"
+  ref :"User"
 }
 
 
@@ -42,4 +42,4 @@ owner :{
 // use .plugin premade middleware 
 videoModel.plugin(mongooseAggregatePaginate)
 
-export const videoModel = mongoose.model('video',videoSchema);
+export const videoModel = mongoose.model('Video',videoSchema);
