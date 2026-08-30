@@ -243,7 +243,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
   if (!fullName || !email) {
     throw new ApiError(400, "All fields are required");
   }
-  const user = User.findByIdAndUpdate(
+  const user = await User.findByIdAndUpdate(
     req.user?._id,
     {
       $set: {
@@ -313,7 +313,7 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
     { $match: { username: username?.toLowerCase() } },
     {
       $lookup: {
-        from: "Subscription",
+        from: "subscriptions",
         localField: "_id",
         foreignField: "channel",
         as: "subscribers",
@@ -321,9 +321,9 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
     },
     {
       $lookup: {
-        from: "Subscription",
+        from: "subscriptions",
         localField: "_id",
-        foreignField: "subscribers",
+        foreignField: "subscriber",
         as: "subscribedTo",
       },
     },
@@ -370,12 +370,12 @@ const getWatchHistory = asyncHandler(async(req,res)=>{
       $lookup:{
         from:"videos",
         localField:"watchHistory",
-        foreignField: "watchHistory",
+        foreignField: "_id",
         as: "watchHistory",
         pipeline:[
           {
             $lookup:{
-            from: "User",
+            from: "users",
             localField: "owner",
             foreignField: "_id",
             as : "owner",
