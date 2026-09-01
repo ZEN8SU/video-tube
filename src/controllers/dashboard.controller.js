@@ -44,7 +44,7 @@ const getChannelStats = asyncHandler(async (req, res) => {
       $group: {
         _id: null,
         totalVideos: { $sum: 1 },
-        totalViews: { $sum: "views" },
+        totalViews: { $sum: "$views" },
         totalLikes: { $sum: "$likesCount" },
       },
     },
@@ -82,7 +82,7 @@ const getChannelVideos = asyncHandler(async (req, res) => {
   }
 
   const videos = await Video.find({ owner: userId })
-    .sort({ created: -1 })
+    .sort({ createdAt: -1 })
     .skip(Number(skip))
     .limit(Number(limit));
 
