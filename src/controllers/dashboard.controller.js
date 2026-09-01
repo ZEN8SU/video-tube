@@ -6,7 +6,7 @@ import { ApiResponse } from "../utils/ApiResponse";
 
 const getChannelStats = asyncHandler(async (req, res) => {
   //  get user id
-  //  fetched number of subsribers
+  //  fetched number of subscribers
   //  total videos , views and likes etc
   //  response send
 
@@ -67,3 +67,28 @@ const getChannelStats = asyncHandler(async (req, res) => {
       new ApiResponse(200, channelStats, "Channel stats fetched successfully")
     );
 });
+
+const getChannelVideos = asyncHandler(async (req, res) => {
+  // req.query for using limit
+  // id fetching
+  // database actions
+  // validation (if needed)
+  // response
+  const { limit = 10, skip = 0 } = req.query;
+
+  const userId = req.user?._id;
+  if (!userId) {
+    throw new ApiError(401, "User not found");
+  }
+
+  const videos = await Video.find({ owner: userId })
+    .sort({ created: -1 })
+    .skip(Number(skip))
+    .limit(Number(limit));
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, videos, "Channel video Fetched Successfully"));
+});
+
+export { getChannelStats, getChannelVideos };
