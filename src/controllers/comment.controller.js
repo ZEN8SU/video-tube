@@ -71,7 +71,7 @@ const deleteComment = asyncHandler(async (req, res) => {
 
 const getVideoComment = asyncHandler(async (req, res) => {
   const { videoId } = req.params;
-  const { limit = 10, skip = 0 } = req.query;
+  const { limit = '10', skip = '0' } = req.query;
   if (!isValidObjectId(videoId)) {
     throw new ApiError(400, "Invalid video id");
   }

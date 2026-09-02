@@ -74,7 +74,7 @@ const getChannelVideos = asyncHandler(async (req, res) => {
   // database actions
   // validation (if needed)
   // response
-  const { limit = 10, skip = 0 } = req.query;
+  const { limit = '10', skip = '0' } = req.query;
 
   const userId = req.user?._id;
   if (!userId) {
