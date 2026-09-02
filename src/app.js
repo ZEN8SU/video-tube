@@ -13,9 +13,11 @@ app.use(cookieParser());
 // routes
 import userRouter from './routes/user.routes.js'
 import dashBoardRouter from './routes/dashboard.routes.js'
+import commentRouter from './routes/comment.routes.js'
 
 //routes declaration
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/dashboard', dashBoardRouter);
+app.use('/api/v1/comments',commentRouter);
 
 export {app};
