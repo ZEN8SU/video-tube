@@ -1,5 +1,5 @@
 Markdown
-# StreamX | Production-Ready Video Hosting Backend
+# video-tube | Production-Ready Video Hosting Backend
 
 A fully-featured, production-ready RESTful API backend for a video-sharing platform modeled after YouTube. Engineered with Node.js, Express.js, and MongoDB, this project focuses on robust system architecture, complex data aggregation, secure state handling, and high-performance querying.
 
