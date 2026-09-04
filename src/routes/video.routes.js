@@ -7,10 +7,10 @@ import {
   togglePublishStatus,
   updateVideo,
 } from "../controllers/video.controller.js";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { verifyJwT } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 const router = Router();
-router.use(verifyJWT);
+router.use(verifyJwT);
 router
   .route("/")
   .get(getAllVideos)
