@@ -65,15 +65,7 @@ npm run dev
 
 # Production Mode
 npm start
-📝 License
-Distributed under the MIT License. See LICENSE for more information.
+
 
 
 ***
-
-### README Features:
-* **Professional Layout:** Clear badges, structured headers, and clean syntax.
-* **Technical Depth:** Aggregation pipelines, JWT security, and file uploads highlight kiye hain.
-* **Easy Setup:** `.env` reference aur Installation steps direct aur copy-paste ready hain.
-
-<FollowUp label="Is README me Playlist ya Dashboard API endpoints ka section bhi add karein?" query="README file me Playlist aur Dashboard endpoints details add karke do."/>
