@@ -85,7 +85,9 @@ const getChannelVideos = asyncHandler(async (req, res) => {
     .sort({ createdAt: -1 })
     .skip(Number(skip))
     .limit(Number(limit));
-
+  if (!video) {
+    throw new ApiError(404, "channel video not found");
+  }
   return res
     .status(200)
     .json(new ApiResponse(200, videos, "Channel video Fetched Successfully"));
