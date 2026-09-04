@@ -7,10 +7,10 @@ import {
   togglePublishStatus,
   updateVideo,
 } from "../controllers/video.controller.js";
-import { verifyJwT } from "../middlewares/auth.middleware.js";
+import { verifyJwt } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 const router = Router();
-router.use(verifyJwT);
+router.use(verifyJwt);
 router
   .route("/")
   .get(getAllVideos)
@@ -34,3 +34,5 @@ router
   .patch(upload.single("thumbnail"), updateVideo);
 
 router.route("/toggle/publish/:videoId").patch(togglePublishStatus);
+
+ export default router;

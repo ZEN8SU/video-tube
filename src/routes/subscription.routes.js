@@ -4,10 +4,10 @@ import {
   getUserChannelSubscribers,
   toggleSubscription,
 } from "../controllers/subscription.controller.js";
-import { verifyJwT } from "../middlewares/auth.middleware.js";
+import {verifyJwt } from "../middlewares/auth.middleware.js";
 
 const router = Router();
-router.use(verifyJwT); // Apply
+router.use(verifyJwt); // Apply
 
 router
   .route("/c/:channelId")

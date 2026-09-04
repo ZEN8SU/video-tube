@@ -40,6 +40,6 @@ owner :{
 })
 
 // use .plugin premade middleware 
-videoModel.plugin(mongooseAggregatePaginate)
+videoSchema.plugin(mongooseAggregatePaginate)
 
 export const Video = mongoose.model('Video',videoSchema);
